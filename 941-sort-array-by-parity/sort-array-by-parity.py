@@ -6,10 +6,10 @@ class Solution(object):
             if nums[left] % 2 > nums[right] % 2:
                 nums[left], nums[right] = nums[right], nums[left]
 
-            if nums[left] % 2 == 0:
+            if nums[left] &1 == 0:
                 left += 1
 
-            if nums[right] % 2 == 1:
+            if nums[right] &1 == 1:
                 right -= 1
 
         return nums
