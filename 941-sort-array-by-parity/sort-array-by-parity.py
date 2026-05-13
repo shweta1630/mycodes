@@ -1,12 +1,15 @@
 class Solution(object):
     def sortArrayByParity(self, nums):
+        left, right = 0, len(nums) - 1
 
-        n=len(nums)
-        for i in range(n):
-            if nums[i]%2!=0:
-                for j in range(i+1,n):
-                    if nums[j]%2== 0:
-                        nums[i],nums[j]=nums[j],nums[i]
-                        break
-        return nums         
-        
+        while left < right:
+            if nums[left] % 2 > nums[right] % 2:
+                nums[left], nums[right] = nums[right], nums[left]
+
+            if nums[left] % 2 == 0:
+                left += 1
+
+            if nums[right] % 2 == 1:
+                right -= 1
+
+        return nums
