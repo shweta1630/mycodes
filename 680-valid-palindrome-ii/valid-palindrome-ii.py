@@ -16,8 +16,6 @@ class Solution(object):
         while i < j:
             if s[i] != s[j]:
                 return is_palindrome(i + 1, j) or is_palindrome(i, j - 1)
-
             i += 1
             j -= 1
-
         return True
