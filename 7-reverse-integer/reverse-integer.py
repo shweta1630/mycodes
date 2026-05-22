@@ -1,21 +1,13 @@
 class Solution(object):
     def reverse(self, x):
-        INT_MIN, INT_MAX = -2**31, 2**31 - 1
+        s = str(x)
+        if s[0] == '-':
+            rev = s[:0:-1]
+            rev = '-' + rev
+        else:
+            rev = s[::-1]
+        rev = int(rev)
 
-        # Handle sign
-        sign = -1 if x < 0 else 1
-        x *= sign
-
-        # Reverse digits
-        rev = 0
-        while x != 0:
-            pop = x % 10
-            x //= 10
-            rev = rev * 10 + pop
-
-        rev *= sign
-
-        # Check overflow
-        if rev < INT_MIN or rev > INT_MAX:
+        if rev < -2**31 or rev > 2**31 - 1:
             return 0
         return rev
