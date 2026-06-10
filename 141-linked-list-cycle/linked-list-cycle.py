@@ -19,4 +19,5 @@ class Solution(object):
             fast=fast.next.next
             if fast==slow:
                 return True
+            
         return False
