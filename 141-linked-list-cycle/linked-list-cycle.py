@@ -10,6 +10,8 @@ class Solution(object):
         :type head: ListNode
         :rtype: bool
         """
+        if not head or not head.next:
+            return False
         slow=head
         fast=head
         while fast and fast.next:
