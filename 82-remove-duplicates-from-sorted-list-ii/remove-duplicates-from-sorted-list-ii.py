@@ -8,14 +8,13 @@ class Solution(object):
         dummy=ListNode(0)
         dummy.next=head
         prev=dummy
-        curr=head
-        while curr:
-            if curr.next and curr.val==curr.next.val:
-                dup_val=curr.val
-                while curr and curr.val==dup_val:
-                    curr=curr.next
-                prev.next=curr
+        temp=head
+        while temp:
+            if temp.next and temp.val==temp.next.val:
+                while temp.next and temp.val==temp.next.val:
+                    temp=temp.next
+                prev.next=temp.next
             else:
-                prev=curr
-                curr=curr.next
+                prev=prev.next
+            temp=temp.next
         return dummy.next
