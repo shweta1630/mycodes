@@ -3,13 +3,11 @@ class Solution:
         if not head or not head.next:
             return
 
-        # Find middle
-        slow, fast = head, head
-        while fast.next and fast.next.next:
+        slow = fast = head
+        while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
 
-        # Reverse second half
         prev = None
         curr = slow.next
         slow.next = None
@@ -20,8 +18,8 @@ class Solution:
             prev = curr
             curr = nxt
 
-        # Merge two halves
-        first, second = head, prev
+        first = head
+        second = prev
 
         while second:
             t1 = first.next
