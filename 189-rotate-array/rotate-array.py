@@ -7,4 +7,6 @@ class Solution(object):
         """
         n=len(nums)
         k=k%n
-        nums[:]=nums[n-k:]+nums[:n-k]
+        nums.reverse()
+        nums[:k]=reversed(nums[:k])
+        nums[k:]=reversed(nums[k:])
